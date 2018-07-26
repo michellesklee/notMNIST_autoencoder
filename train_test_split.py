@@ -7,7 +7,7 @@ import numpy as np
 # define path from current
 current = os.getcwd()
 data_dir = os.path.dirname('data/')
-load_dir = os.path.dirname('notMNIST_small/')
+load_dir = os.path.dirname('data/notMNIST_small/')
 
 # define existing relative paths
 letters = ['A','B','C','D','E','F','G','H','I','J']
@@ -24,8 +24,8 @@ os.mkdir(testpath)
 os.mkdir(validpath)
 
 for letter in letters:
-    # os.mkdir(trainpath + letter + '/');
-    # os.mkdir(testpath + letter + '/');
+    os.mkdir(trainpath + letter + '/');
+    os.mkdir(testpath + letter + '/');
     os.mkdir(validpath + letter + '/');
 
 print ("Test/Train paths are created")
