@@ -10,7 +10,7 @@ Benchmark: Yaroslav Bulatov did logistic regression on top of autoencoding and g
 #### Model 1
 Basic autoencoder: 16.77% accuracy
 
-![first_pass]((https://github.com/michellesklee/notMNIST_autoencoder/blob/master/images/first_pass.png))
+![first_pass](https://github.com/michellesklee/notMNIST_autoencoder/blob/master/images/first_pass.png)
 
 ```python
 def autoencoder_model(X_train):
