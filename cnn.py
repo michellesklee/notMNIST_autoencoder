@@ -55,14 +55,14 @@ if __name__ == '__main__':
     test_datagen = ImageDataGenerator(rescale=1./255)
 
     train_generator = train_datagen.flow_from_directory(
-            'notMNIST_small',
+            'notMNIST_large',
             target_size=(28,28),
             batch_size=batch_size,
             color_mode='grayscale',
             class_mode='categorical')
 
     validation_generator = test_datagen.flow_from_directory(
-            'notMNIST_small',
+            'notMNIST_large',
             target_size=(28,28),
             batch_size=batch_size,
             color_mode='grayscale',
@@ -81,3 +81,5 @@ if __name__ == '__main__':
     score = model.evaluate_generator(validation_generator, 72 // batch_size + 1)
     print('Test score:', score[0])
     print('Test accuracy:', score[1])
+
+    plot_model(model, show_shapes=True, to_file = 'model.png')
