@@ -4,8 +4,7 @@ from os.path import isfile, join
 from shutil import copyfile
 import numpy as np
 
-# define path from current
-current = os.getcwd()
+# define path
 data_dir = os.path.dirname('data/')
 load_dir = os.path.dirname('data/notMNIST_small/')
 
@@ -41,19 +40,18 @@ for idx, letter in enumerate(letters):
     writepath_train = trainpath + '/' + letter
     writepath_test = testpath + '/' + letter
     writepath_validation = validpath + '/' + letter
-    print(readpath)
     # read in data
     files = np.array([f for f in listdir(readpath) if isfile(join(readpath, f))])
 
     # do the split
     test_files = np.random.choice(files, int(percent_test*len(files)))
     for file in test_files:
-        copyfile(readpath + file, writepath_test + '' + file)
+        copyfile(readpath + file, writepath_test + '/'+ file)
 
     train_files = files[~np.in1d(files, test_files)]
     for file in train_files:
-        copyfile(readpath + file, writepath_train + '' + file)
+        copyfile(readpath + file, writepath_train + '/'+ file)
 
     valid_files = np.random.choice(files, 350)
     for file in valid_files:
-        copyfile(readpath + file, writepath_validation + '' + file)
+        copyfile(readpath + file, writepath_validation + '/'+  file)
