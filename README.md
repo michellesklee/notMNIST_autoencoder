@@ -20,7 +20,7 @@ def autoencoder_model(X_train):
     decoded1 = Dense(units = 256, activation='relu')(encoded2)
     decoded2 = Dense(units = 784, activation='sigmoid')(decoded1)
     autoencoder = Model(input_img, decoded2)
-    autoencoder.compile(optimizer = 'adam', loss = 'mean_squared_error', metrics=['mse'])
+    autoencoder.compile(optimizer = 'adam', loss = 'sparse_categorical_crossentropy', metrics=['accuracy'])
 
     return autoencoder
 ```
