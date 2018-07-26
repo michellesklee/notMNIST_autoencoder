@@ -31,4 +31,7 @@ conv2d_6 (Conv2D)           | (None, 28, 28, 1)        | 577
 
 **Total params** 314,625
 
+#### Model 3: CNN
+CNN: 76.25% accuracy
+
 ![model](https://github.com/michellesklee/notMNIST_autoencoder/blob/master/images/model.png)
