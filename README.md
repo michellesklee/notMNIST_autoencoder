@@ -99,10 +99,12 @@ def make_model():
 
     return model
  ```
+#### CNN on Large Dataset 
+Test-train split and running our CNN model resulted in 62.5% accuracy
 
 #### Future Steps
 While we were not able to reach at least 84% accuracy, there are a number of future steps we could take:
 
 1. Continue to fine tune the CNN model
 2. Try pre-trained model (e.g., ResNet50)
-3. Test on larger dataset
+
