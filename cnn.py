@@ -55,14 +55,14 @@ if __name__ == '__main__':
     test_datagen = ImageDataGenerator(rescale=1./255)
 
     train_generator = train_datagen.flow_from_directory(
-            'data/notMNIST_small',
+            'data/train',
             target_size=(28,28),
             batch_size=batch_size,
             color_mode='grayscale',
             class_mode='categorical')
 
     validation_generator = test_datagen.flow_from_directory(
-            'data/notMNIST_small',
+            'data/validation',
             target_size=(28,28),
             batch_size=batch_size,
             color_mode='grayscale',
