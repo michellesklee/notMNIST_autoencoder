@@ -23,7 +23,7 @@ def autoencoder_model(X_train):
     autoencoder.compile(optimizer = 'adam', loss = 'mean_squared_error', metrics=['mse'])
 
     return autoencoder
-    ```
+```
 
 #### Model 2
 Multilayer autoencoder: 27.51% accuracy
