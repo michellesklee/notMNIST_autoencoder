@@ -10,23 +10,6 @@ Yaroslav Bulatov did logistic regression on top of autoencoding and got 84% accu
 #### Model 1
 Basic autoencoder: 16.77% accuracy
 
-```python
-def autoencoder_model(X_train):
-    '''
-    defines autoencoder model
-    input: X_train (2D np array)
-    output: autoencoder (compiled autoencoder model)
-    '''
-    input_img = Input(shape=(X_train.shape[1],))
-    encoded1 = Dense(units = 256, activation = 'relu')(input_img)
-    encoded2 = Dense(units = 64, activation='relu')(encoded1)
-    decoded1 = Dense(units = 256, activation='relu')(encoded2)
-    decoded2 = Dense(units = 784, activation='sigmoid')(decoded1)
-    autoencoder = Model(input_img, decoded2)
-    autoencoder.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics=['accuracy'])
-
-    return autoencoder
-```
 #### Model 2
 Multilayer autoencoder: 27.51% accuracy
 
