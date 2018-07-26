@@ -98,7 +98,7 @@ def make_model():
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
     return model
-    ```
+ ```
 
 #### Future Steps
 While we were not able to reach at least 84% accuracy, there are a number of future steps we could take:
