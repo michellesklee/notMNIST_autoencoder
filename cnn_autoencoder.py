@@ -3,19 +3,15 @@ import keras
 from matplotlib import pyplot as plt
 import numpy as np
 import gzip
-from keras.layers import Input,Conv2D,MaxPooling2D,UpSampling2D
+from keras.layers import Input,Conv2D,MaxPooling2D,UpSampling2D,Flatten,Dropout
 from keras.models import Model
 from keras.optimizers import RMSprop
 from sklearn.model_selection import train_test_split
+from keras.utils import plot_model
 
 
 os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"]="1" #model will be trained on GPU 1
-
-train_data = extract_data('notMNIST_small.tar.gz', 14979)
-test_data = extract_data('notMNIST_small.tar.gz', 3745)
-train_labels = extract_labels('notMNIST_small.tar.gz', 14979)
-test_labels = extract_labels('notMNIST_small.tar.gz', 3745)
 
 def extract_data(filename, num_images):
     with gzip.open(filename) as bytestream:
@@ -44,6 +40,11 @@ label_dict = {
  8: 'I',
  9: 'J',
 }
+
+train_data = extract_data('notMNIST_small.tar.gz', 14979)
+test_data = extract_data('notMNIST_small.tar.gz', 3745)
+train_labels = extract_labels('notMNIST_small.tar.gz', 14979)
+test_labels = extract_labels('notMNIST_small.tar.gz', 3745)
 
 # plt.figure(figsize=[5,5])
 #
@@ -88,17 +89,17 @@ def autoencoder(input_img):
     conv2 = Conv2D(64, (3, 3), activation='relu', padding='same')(pool1) #14 x 14 x 64
     pool2 = MaxPooling2D(pool_size=(2, 2))(conv2) #7 x 7 x 64
     conv3 = Conv2D(128, (3, 3), activation='relu', padding='same')(pool2) #7 x 7 x 128 (small and thick)
-
     #decoder
     conv4 = Conv2D(128, (3, 3), activation='relu', padding='same')(conv3) #7 x 7 x 128
     up1 = UpSampling2D((2,2))(conv4) # 14 x 14 x 128
     conv5 = Conv2D(64, (3, 3), activation='relu', padding='same')(up1) # 14 x 14 x 64
     up2 = UpSampling2D((2,2))(conv5) # 28 x 28 x 64
-    decoded = Conv2D(1, (3, 3), activation='sigmoid', padding='same')(up2) # 28 x 28 x 1
+    decoded = Conv2D(1, (3, 3), activation='softmax', padding='same')(up2) # 28 x 28 x 1
     return decoded
 
 autoencoder = Model(input_img, autoencoder(input_img))
-autoencoder.compile(loss = 'binary_crossentropy', metrics=['accuracy'], optimizer = RMSprop())
+autoencoder.compile(loss = 'sparse_categorical_crossentropy', metrics=['accuracy'], optimizer = 'adam')
+plot_model(autoencoder, show_shapes=True, to_file = 'model.png')
 
 #autoencoder.summary() #see summary table in README
 
