@@ -1,4 +1,4 @@
-![As](https://github.com/michellesklee/notMNIST_autoencoder/blob/master/images/sample_letters.png)
+![As](https://github.com/michellesklee/notMNIST_autoencoder/blob/master/images/As.png)
 
 ## Definitely *not* MNIST
 
@@ -31,3 +31,5 @@ up_sampling2d_2 (UpSampling2)| (None, 28, 28, 64)       | 0
 conv2d_6 (Conv2D)           | (None, 28, 28, 1)        | 577
 
 **Total params** 314,625
+
+![model](https://github.com/michellesklee/notMNIST_autoencoder/blob/master/images/model.png)
