@@ -9,6 +9,7 @@ Yaroslav Bulatov did logistic regression on top of autoencoding and got 84% accu
 
 #### Model 1
 Basic autoencoder: 16.77% accuracy
+![first_pass]((https://github.com/michellesklee/notMNIST_autoencoder/blob/master/images/first_pass.png))
 
 #### Model 2
 Multilayer autoencoder: 27.51% accuracy
@@ -30,6 +31,12 @@ conv2d_6 (Conv2D)           | (None, 28, 28, 1)        | 577
 **Total params** 314,625
 
 #### Model 3: CNN
-CNN: 73.75% accuracy   
+CNN: 76.25% accuracy   
 
 ![model](https://github.com/michellesklee/notMNIST_autoencoder/blob/master/images/model.png)
+
+#### Future Steps
+While we were not able to reach at least 84% accuracy, there are a number of future steps we could take:
+
+1. Continue to fine tune the CNN model
+2. Try pre-trained model (e.g., ResNet50)
