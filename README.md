@@ -1,20 +1,19 @@
-![As](https://github.com/michellesklee/notMNIST_autoencoder/blob/master/images/As.png)
+![sampleletters](https://github.com/michellesklee/notMNIST_autoencoder/blob/master/images/sample_letters.png)
 
 ## Definitely *not* MNIST
 
 The [MNIST dataset](http://yann.lecun.com/exdb/mnist/) is so 1998. In 2011 Yaroslav Bulatov made the [notMNIST dataset](http://yaroslavvb.blogspot.com/2011/09/notmnist-dataset.html). There are still 10 classes, but instead of numbers 0 - 9 you are classifying letters A - J of many different font styles.
 
-**Sample Letters**
+## Data Cleaning
 
-![sampleletters](https://github.com/michellesklee/notMNIST_autoencoder/blob/master/images/sample_letters.png)
-
+## Model Building
 Yaroslav Bulatov did logistic regression on top of autoencoding and got 84% accuracy - this was our benchmark.
 
-1. Baseline - Basic autoencoder: 16.77% accuracy
+#### Model 1
+Basic autoencoder: 16.77% accuracy
 
-2. Multilayer autoencoder: 27.51%
-
-### Model Results of Multilayer Autoencoder
+#### Model 2
+Multilayer autoencoder: 27.51% accuracy
 
 Layer | Output Shape | Param #
 --- | --- | ---
