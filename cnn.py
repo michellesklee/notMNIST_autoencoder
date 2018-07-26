@@ -34,7 +34,7 @@ def make_model():
     model.add(Activation('relu'))
     model.add(Dropout(0.5))
     model.add(Dense(10))
-    model.add(Activation('sigmoid'))
+    model.add(Activation('softmax'))
 
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
@@ -82,4 +82,4 @@ if __name__ == '__main__':
     print('Test score:', score[0])
     print('Test accuracy:', score[1])
 
-    plot_model(model, show_shapes=True, to_file = 'model.png')
+    # plot_model(model, show_shapes=True, to_file = 'model.png')
