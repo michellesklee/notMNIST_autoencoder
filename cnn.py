@@ -78,6 +78,6 @@ if __name__ == '__main__':
 
     model.save_weights('first_try.h5')
 
-    score = model.evaluate_generator(validation_generator, nb_validation_samples // batch_size + 1)
+    score = model.evaluate_generator(validation_generator, 72 // batch_size + 1)
     print('Test score:', score[0])
     print('Test accuracy:', score[1])
